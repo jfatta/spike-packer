@@ -37,8 +37,19 @@
           "sudo apt-get install -y build-essential",
           "tar -xvzf {{user `project_name`}}.tar.gz",
           "cd {{user `project_name`}}",
-          "npm i",
-          "npm start"
+          "npm i"
+        ]
+      },
+      {
+        "type": "file",
+        "source": "./limitd.config",
+        "destination": "/home/ubuntu/{{user `project_name`}}/"
+      },
+      {
+        "type": "shell",
+        "inline": [
+          "cd {{user `project_name`}}",
+          "npm start -- --config-file limitd.config"
         ]
       }
     ]
