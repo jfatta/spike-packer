@@ -38,7 +38,7 @@
           "tar -xvzf {{user `project_name`}}.tar.gz",
           "cd {{user `project_name`}}",
           "npm i",
-          "npm t"
+          "npm start"
         ]
       }
     ]
