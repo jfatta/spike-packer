@@ -45,8 +45,21 @@
         "inline": [
           "cd {{user `project_name`}}",
           "sudo mkdir -p /var/limitd/database",
-          "sudo cp conf/limitd.conf.example /etc/limitd.config",
-          "sudo ./bin/limitd  --config-file /etc/limitd.config"
+          "sudo cp conf/limitd.conf.example /etc/limitd.config"
+        ]
+      },
+      {
+        "type": "file",
+        "source": "limitd.service",
+        "destination": "/tmp/limitd.service"
+      },
+      {
+        "type": "shell",
+        "inline": [
+          "sudo cp /tmp/limitd.service /etc/systemd/system/limitd.service",
+          "sudo chmod 664 /etc/systemd/system/limitd.service",
+          "sudo systemctl daemon-reload",
+          "sudo systemctl systemctl start limitd.service"
         ]
       }
     ]

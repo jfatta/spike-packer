@@ -1,0 +1,10 @@
+[Unit]
+Description=limitd service
+After=network.target
+
+[Service]
+ExecStart=/home/ubuntu/limitd/bin/limitd --config-file /etc/limitd.config
+Type=forking
+
+[Install]
+WantedBy=default.target
