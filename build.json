@@ -41,11 +41,6 @@
         ]
       },
       {
-        "type": "file",
-        "source": "./limitd.config",
-        "destination": "/home/ubuntu/{{user `project_name`}}/"
-      },
-      {
         "type": "shell",
         "inline": [
           "cd {{user `project_name`}}",
