@@ -49,7 +49,9 @@
         "type": "shell",
         "inline": [
           "cd {{user `project_name`}}",
-          "npm start -- --config-file limitd.config"
+          "sudo mkdir -p /var/limitd/database",
+          "sudo cp conf/limitd.conf.example /etc/limitd.config",
+          "sudo ./bin/limitd  --config-file /etc/limitd.config"
         ]
       }
     ]
